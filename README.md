@@ -6,3 +6,53 @@ The work covers data cleaning, text normalisation, table merging, visualisation 
 ---
 
 ## 📁 Project Structure
+
+---
+
+## 🔍 About This Project
+
+The analysis examines:
+
+- Trends in reported events over time  
+- Most frequent notice and action types  
+- Country‑level reporting patterns  
+- Cleaning and normalisation of inconsistent text fields  
+- Merging of event, device and manufacturer datasets  
+
+The notebook provides a step‑by‑step walk‑through of the analytical workflow, while the Python script generates a set of static visualisations.
+
+---
+
+## 🚀 Running the Notebook
+
+To run the analysis locally:
+
+1. Download the dataset files used during development:
+   - `events-1681209680.csv`
+   - `devices-1681209661.csv`
+   - `manufacturers-1681209657.csv`
+2. Place them inside the `/data` folder.
+3. Open `notebooks/analysis.ipynb` and run all cells.
+
+The script `clean_and_visualise.py` uses the same files and will save charts into the `/outputs/charts` directory when executed.
+
+---
+
+## 📊 Visual Outputs
+
+Charts generated during the analysis can be found in:
+
+outputs/charts/
+
+These include:
+
+- Events over time  
+- Notice type distribution  
+- Action type frequency  
+- Top reporting countries  
+
+---
+
+## 📝 Summary
+
+The project demonstrates a complete end‑to‑end data analysis workflow using Python, including cleaning a large dataset, merging multiple tables, producing visualisations and summarising findings relevant to medical device post‑market surveillance.
