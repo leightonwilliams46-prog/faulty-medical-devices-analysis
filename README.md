@@ -1,2 +1,8 @@
-# faulty-medical-devices-analysis
-Analysis of faulty medical device event data using Python, with cleaning, merging, visualisation and BI integration.
+# Faulty Medical Devices – Data Analysis
+
+This project explores a dataset of faulty medical device event records.  
+The work covers data cleaning, text normalisation, table merging, visualisation and interpretation, with a focus on supporting post‑market surveillance activities.
+
+---
+
+## 📁 Project Structure
