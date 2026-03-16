@@ -1,0 +1,147 @@
+# Faulty Medical Devices - Analysis (clean, final version)
+
+import warnings
+warnings.filterwarnings("ignore")
+
+import re
+from pathlib import Path
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# -------------------------------------
+# File paths
+# -------------------------------------
+events_path = r"C:\Users\williamsl\Downloads\archive\events-1681209680.csv"
+devices_path = r"C:\Users\williamsl\Downloads\archive\devices-1681209661.csv"
+manufacturers_path = r"C:\Users\williamsl\Downloads\archive\manufacturers-1681209657.csv"
+
+out_dir = Path(r"C:\Users\williamsl\Downloads\archive\output_figs")
+out_dir.mkdir(exist_ok=True)
+
+# -------------------------------------
+# Helper functions
+# -------------------------------------
+def clean_text(s):
+    s = re.sub(r"[\x00-\x1f\x7f-\x9f]+", " ", str(s))
+    return " ".join(s.split()).upper()
+
+def short_label(s, n=26):
+    s = clean_text(s)
+    return s[:n] + "…" if len(s) > n else s
+
+# -------------------------------------
+# Load data
+# -------------------------------------
+events = pd.read_csv(events_path, low_memory=False)
+devices = pd.read_csv(devices_path, low_memory=False)
+manufacturers = pd.read_csv(manufacturers_path, low_memory=False)
+
+# -------------------------------------
+# Date cleaning (1990–2026)
+# -------------------------------------
+events["date"] = pd.to_datetime(events["date"], errors="coerce")
+events = events[(events["date"] >= "1990-01-01") & (events["date"] <= "2026-12-31")].copy()
+events["year"] = events["date"].dt.year
+
+# -------------------------------------
+# Clean categorical text
+# -------------------------------------
+for df in (events, devices):
+    for col in ["country", "type", "status", "action"]:
+        if col in df.columns:
+            df[col] = df[col].astype(str).map(clean_text)
+
+# -------------------------------------
+# Join all tables
+# -------------------------------------
+merged = events.merge(devices.add_prefix("dev_"), left_on="device_id", right_on="dev_id", how="left")
+merged = merged.merge(manufacturers.add_prefix("mfr_"),
+                      left_on="dev_manufacturer_id",
+                      right_on="mfr_id",
+                      how="left")
+
+# -------------------------------------
+# Prepare series for charts
+# -------------------------------------
+types_count   = merged["type"].replace("", "NAN").fillna("NAN").value_counts()
+country_count = merged["country"].replace("", "NAN").fillna("NAN").value_counts()
+year_count    = merged["year"].value_counts().sort_index()
+
+plt.rcParams.update({"axes.titlesize":12, "axes.labelsize":10})
+
+
+# ===================================================================
+# 1) Top Countries by Event Volume
+# ===================================================================
+top_countries = country_count.head(10)
+
+plt.figure(figsize=(12,5))
+plt.bar(range(len(top_countries)), top_countries.values, color="#F59E0B")
+plt.xticks(range(len(top_countries)), top_countries.index)
+plt.title("Top Countries by Event Volume")
+plt.xlabel("Country"); plt.ylabel("Count")
+plt.tight_layout(); plt.subplots_adjust(bottom=0.12, left=0.08)
+plt.savefig(out_dir / "events_by_country.png", dpi=150)
+plt.show()
+
+
+# ===================================================================
+# 2) Events by Notice Type
+# ===================================================================
+top_types = types_count.head(10)
+labels = [short_label(x, 28) for x in top_types.index]
+
+plt.figure(figsize=(10,5))
+plt.bar(range(len(top_types)), top_types.values, color="#22C55E")
+plt.xticks(range(len(top_types)), labels, rotation=90)
+plt.title("Events by Notice Type")
+plt.xlabel("Type"); plt.ylabel("Count")
+plt.tight_layout(); plt.subplots_adjust(bottom=0.28, left=0.11)
+plt.savefig(out_dir / "events_by_type.png", dpi=150)
+plt.show()
+
+
+# ===================================================================
+# 3) Events Over Time (Cleaned)
+# ===================================================================
+plt.figure(figsize=(12,5))
+plt.plot(year_count.index, year_count.values, marker="o", color="#0EA5E9")
+plt.title("Events Over Time (Cleaned: 1990–2026)")
+plt.xlabel("Year"); plt.ylabel("Count")
+plt.grid(axis="y", alpha=0.3)
+plt.tight_layout(); plt.subplots_adjust(bottom=0.12, left=0.08)
+plt.savefig(out_dir / "events_by_year_CLEAN.png", dpi=150)
+plt.show()
+
+
+# ===================================================================
+# 4) Action Type Count (Cleaned) — replaces removed Top 10 chart
+# ===================================================================
+valid_actions = {
+    "RECALL",
+    "SAFETY INFORMATION",
+    "SAFETY INSTRUCTIONS",
+    "UPDATING",
+    "DISALLOWED TO MARKET"
+}
+
+merged["action_clean"] = merged["action"].map(clean_text)
+subset = merged[merged["action_clean"].isin(valid_actions)].copy()
+action_totals = subset["action_clean"].value_counts().sort_values()
+
+plt.figure(figsize=(10,6))
+plt.barh(action_totals.index, action_totals.values, color="#4C72B0")
+plt.title("Action Type Count (Cleaned)")
+plt.xlabel("Count"); plt.ylabel("Action Type")
+plt.tight_layout(); plt.subplots_adjust(left=0.28, bottom=0.12)
+plt.savefig(out_dir / "action_type_count_clean.png", dpi=150)
+plt.show()
+
+
+# ===================================================================
+# Print saved files
+# ===================================================================
+print("\nSaved figures:")
+for p in sorted(out_dir.glob("*.png")):
+    print(" -", p)
