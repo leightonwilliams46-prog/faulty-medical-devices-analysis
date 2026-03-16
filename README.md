@@ -1,3 +1,4 @@
+
 # Faulty Medical Devices – Data Analysis
 
 This project explores a dataset of faulty medical device event records.  
@@ -6,6 +7,18 @@ The work covers data cleaning, text normalisation, table merging, visualisation 
 ---
 
 ## 📁 Project Structure
+
+faulty-medical-devices-analysis
+│
+├── README.md
+├── notebooks/
+│   └── analysis.ipynb
+├── src/
+│   └── clean_and_visualise.py
+├── data/
+│   └── README.md
+└── outputs/
+└── charts/
 
 ---
 
