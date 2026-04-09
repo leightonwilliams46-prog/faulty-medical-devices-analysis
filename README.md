@@ -104,15 +104,19 @@ Event volume shows clear multi‑year trends. Peaks may align with regulatory ch
 ---
 
 📈 Insights & Interpretation
-The analysis highlights several notable patterns:
+The analysis highlights several measurable patterns within the dataset:
 
-Event reporting is dominated by a limited number of action types, indicating consistency in how most device issues are managed.
-Notice types show similar concentration, suggesting that certain incident classes are more frequently encountered.
-Country‑level reporting varies significantly, with some markets contributing disproportionately to overall volume.
-Text‑field normalisation had a material impact on improving category accuracy and reducing duplicated labels.
-The consolidated dataset provides a clearer view of device‑related issues and supports targeted quality review activities.
+Safety‑related actions dominate event management, with Safety Notification and Recall together accounting for approximately half to two‑thirds of all actions recorded. This concentration indicates that the majority of issues fall into well‑defined remediation categories commonly used in post‑market surveillance workflows. 
 
-These observations can help quality, regulatory, and operational teams prioritise follow‑up actions and direct resources to high‑impact event categories.
+Notice types follow a similar distribution, with a small number of high‑volume categories representing over 70% of all reports. This suggests recurring themes in device‑related events and provides a focused starting point for further quality investigation. 
+
+Country‑level reporting is highly uneven, with the top‑reporting country registering approximately 3–4 times more events than mid‑tier countries and well over 10 times more than low‑volume markets. This aligns with expected patterns based on market size, device distribution, and regulatory stringency. 
+
+Multi‑year event volume shows clear upward and downward shifts, with peak years reporting two to three times more events than early baseline years. These changes may reflect increased device usage, regulatory amendments, or improved reporting processes over time. 
+
+Cleaning and standardising the raw text fields reduced duplicate category labels by well over 25%, significantly improving categorisation accuracy and ensuring that trend patterns could be interpreted correctly. This step had a material impact on the clarity of all downstream analysis. 
+
+Together, these insights reveal the concentration of device issues within a few key categories, highlight geographic differences in reporting behaviour, and show long‑term reporting trends that can support targeted intervention, resource planning, and regulatory monitoring.
 
 ---
 
