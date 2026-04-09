@@ -78,7 +78,7 @@ To run this project locally:
    - `manufacturers-1681209657.csv`  
 2. Place them in the `/data` folder  
 3. Open `notebooks/analysis.ipynb` and run all cells  
-4. Alternatively, run `src/clean_and_visualise.py` to generate charts directly into `/outputs/charts/` https://github.com/leightonwilliams46-prog/nosql-data-analysis-tutorials/releases)
+4. Alternatively, run `src/clean_and_visualise.py` to generate charts directly into `/outputs/charts/`
 
 ---
 
