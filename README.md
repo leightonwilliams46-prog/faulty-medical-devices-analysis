@@ -54,16 +54,16 @@ The script `clean_and_visualise.py` uses the same files and will save charts int
 ## 📊 Key Visualisations
 
 ### Action Type Count
-outputs/charts/action_type_count_clean.png
+https://raw.githubusercontent.com/leightonwilliams46-prog/faulty-medical-devices-analysis/main/outputs/charts/action_type_count_clean.png
 
 ### Events by Country
-outputs/charts/events_by
+https://raw.githubusercontent.com/leightonwilliams46-prog/faulty-medical-devices-analysis/main/outputs/charts/events_by_country.png
 
 ### Events by Type
-outputs/charts/events_by_type.png
+https://raw.githubusercontent.com/leightonwilliams46-prog/faulty-medical-devices-analysis/main/outputs/charts/events_by_type.png
 
 ### Events by Year
-outputs/charts/events_by_year_C
+https://raw.githubusercontent.com/leightonwilliams46-prog/faulty-medical-devices-analysis/main/outputs/charts/events_by_year_CLEAN.png
 
 ---
 
