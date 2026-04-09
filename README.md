@@ -18,7 +18,6 @@ faulty-medical-devices-analysis
 │   └── README.md
 └── outputs/
     └── charts/
-```[1](https://github.com/leightonwilliams46-prog/nosql-data-analysis-tutorials/releases)
 
 ---
 
