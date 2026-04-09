@@ -1,8 +1,7 @@
 
 # Faulty Medical Devices – Data Analysis
 
-This project explores a dataset of faulty medical device event records.  
-The work covers data cleaning, text normalisation, table merging, visualisation and interpretation, with a focus on supporting post‑market surveillance activities.
+This project explores a historical dataset of faulty medical device event records. I wanted to build a clear, end‑to‑end analytical workflow that cleans the raw data, merges multiple tables, and produces visual summaries that help explain where issues occur and how reporting patterns change over time. The work is focused on supporting post‑market surveillance and quality improvement activities in regulated environments
 
 ---
 
@@ -18,36 +17,27 @@ faulty-medical-devices-analysis
 ├── data/
 │   └── README.md
 └── outputs/
-└── charts/
+    └── charts/
+```[1](https://github.com/leightonwilliams46-prog/nosql-data-analysis-tutorials/releases)
 
 ---
 
-## 🔍 About This Project
+## ✅ **Objective**
 
-The analysis examines:
-
-- Trends in reported events over time  
-- Most frequent notice and action types  
-- Country‑level reporting patterns  
-- Cleaning and normalisation of inconsistent text fields  
-- Merging of event, device and manufacturer datasets  
-
-The notebook provides a step‑by‑step walk‑through of the analytical workflow, while the Python script generates a set of static visualisations.
+The aim of this analysis is to identify trends, high‑volume event types, and country‑level reporting patterns within faulty medical device events. By cleaning and standardising the dataset, then merging three related tables (events, devices and manufacturers), the goal is to produce insights that can inform quality teams, operational leads, and regulatory reporting.[1](https://github.com/leightonwilliams46-prog/nosql-data-analysis-tutorials/releases)
 
 ---
 
-## 🚀 Running the Notebook
+## ✅ **What I Did**
 
-To run the analysis locally:
+This project covers:
 
-1. Download the dataset files used during development:
-   - `events-1681209680.csv`
-   - `devices-1681209661.csv`
-   - `manufacturers-1681209657.csv`
-2. Place them inside the `/data` folder.
-3. Open `notebooks/analysis.ipynb` and run all cells.
-
-The script `clean_and_visualise.py` uses the same files and will save charts into the `/outputs/charts` directory when executed.
+- Cleaning and normalising inconsistent text fields  
+- Merging event, device and manufacturer datasets  
+- Exploring trends in faulty device reporting over time  
+- Analysing the distribution of notice and action types  
+- Identifying top reporting countries  
+- Creating static visualisations to summarise key patterns[1](https://github.com/leightonwilliams46-prog/nosql-data-analysis-tutorials/releases)
 
 ---
 
@@ -67,21 +57,56 @@ The script `clean_and_visualise.py` uses the same files and will save charts int
 
 ---
 
-## 📊 Visual Outputs
+## ✅ **Insights & Interpretation**
 
-Charts generated during the analysis can be found in:
+Here is a summary of the main things I observed from the dataset:
 
-outputs/charts/
-
-These include:
-
-- Events over time  
-- Notice type distribution  
-- Action type frequency  
-- Top reporting countries  
+- A small number of action types account for most responses, with *Safety Notification* and *Recall* being the most common.  
+- Event reporting increases noticeably in later years, suggesting either better surveillance or increased device usage.  
+- Reporting is highly concentrated in a small set of countries, reflecting market size or regulatory practices.  
+- Notice types follow a similar pattern, with a few categories dominating overall volume.  
+- Text fields required standardisation due to inconsistent casing and duplicated categories — cleaning these had a major effect on the clarity of the final outputs.  
 
 ---
 
-## 📝 Summary
+## ✅ **How to Run the Analysis**
 
-The project demonstrates a complete end‑to‑end data analysis workflow using Python, including cleaning a large dataset, merging multiple tables, producing visualisations and summarising findings relevant to medical device post‑market surveillance.
+To run this project locally:
+
+1. Download the datasets used for development:  
+   - `events-1681209680.csv`  
+   - `devices-1681209661.csv`  
+   - `manufacturers-1681209657.csv`  
+2. Place them in the `/data` folder  
+3. Open `notebooks/analysis.ipynb` and run all cells  
+4. Alternatively, run `src/clean_and_visualise.py` to generate charts directly into `/outputs/charts/`[1](https://github.com/leightonwilliams46-prog/nosql-data-analysis-tutorials/releases)
+
+---
+
+## ✅ **Tools & Libraries Used**
+
+- Python (pandas, numpy, matplotlib, seaborn)  
+- Jupyter Notebook  
+- Custom Python script for automated cleaning and plotting  
+- Git & GitHub for version control and documentation  
+
+---
+
+## ✅ **Why This Project Matters**
+
+Faulty medical device events have real implications for patient safety, manufacturer obligations, and regulatory compliance. Understanding which devices fail, how often failures occur, and which actions are most common helps quality teams prioritise investigations and supports post‑market surveillance reporting.  
+
+This project demonstrates my ability to take a messy operational dataset and turn it into something structured, analysed, and visually interpretable.
+
+---
+
+## ✅ **Next Steps**
+
+If I extend this project, I’d like to:
+
+- Add interactive charts (Plotly or Dash)  
+- Build a simple Power BI or Tableau report using the cleaned output  
+- Incorporate NLP to analyse free‑text event descriptions  
+- Look at predictive modelling on event types or action categories  
+
+---
