@@ -5,7 +5,7 @@ This project provides a structured analysis of faulty medical device event recor
 
 ---
 
-📊 Executive Summary
+## 📊 Executive Summary
 This analysis examines a multi‑table dataset containing event reports, device information, and manufacturer details. After conducting data cleaning and harmonisation, the merged dataset was used to explore trends in device‑related events, distribution of notice and action categories, and country‑level reporting behaviour.
 The findings indicate that a small number of notice and action categories account for the majority of reported events, with reporting volume concentrated within specific countries. Year‑level trends show variation in annual reporting activity, and the visual outputs provide a consolidated view of the underlying patterns. These insights help stakeholders identify high‑volume categories, understand reporting consistency, and prioritise follow‑up activities.
 
@@ -29,7 +29,7 @@ faulty-medical-devices-analysis
 
 ---
 
-📄 Data Context
+## 📄 Data Context
 The dataset consists of three linked tables:
 
 Events – individual faulty device event records
@@ -46,7 +46,7 @@ The aim of this analysis is to identify trends, high‑volume event types, and c
 
 ---
 
-🔧 Methodology
+## 🔧 Methodology
 The analysis followed these steps:
 
 
@@ -103,7 +103,7 @@ Event volume shows clear multi‑year trends. Peaks may align with regulatory ch
 
 ---
 
-📈 Insights & Interpretation
+## 📈 Insights & Interpretation
 The analysis highlights several measurable patterns within the dataset:
 
 Safety‑related actions dominate event management, with Safety Notification and Recall together accounting for approximately half to two‑thirds of all actions recorded. This concentration indicates that the majority of issues fall into well‑defined remediation categories commonly used in post‑market surveillance workflows. 
@@ -120,7 +120,7 @@ Together, these insights reveal the concentration of device issues within a few 
 
 ---
 
-🧪 How to Run the Analysis
+## 🧪 How to Run the Analysis
 To run this project locally:
 
 Download the dataset files:
@@ -139,7 +139,7 @@ to generate visual outputs directly into /outputs/charts/.
 
 ---
 
-🛠️ Tools & Libraries
+## 🛠️ Tools & Libraries
 
 Python: pandas, numpy, matplotlib, seaborn
 Jupyter Notebook for exploratory analysis
@@ -148,7 +148,7 @@ GitHub for version control and documentation
 
 ---
 
-✅ Conclusion
+## ✅ Conclusion
 This project demonstrates a complete analytical workflow for faulty medical device event data, covering cleaning, merging, visualisation, and high‑level interpretation. The insights help illustrate how event characteristics vary across categories, countries, and time, supporting more effective monitoring of post‑market device performance.
 The structured approach, combined with automated visual outputs, provides a foundation for more advanced analytics such as trend forecasting, device‑category risk assessment, or integration into BI dashboards for operational reporting.
 
