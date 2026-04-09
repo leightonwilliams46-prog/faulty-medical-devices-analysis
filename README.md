@@ -7,7 +7,7 @@ This project explores a historical dataset of faulty medical device event record
 
 ## 📁 Project Structure
 
-```text
+text
 faulty-medical-devices-analysis
 │
 ├── README.md
