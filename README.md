@@ -51,6 +51,19 @@ The script `clean_and_visualise.py` uses the same files and will save charts int
 
 ---
 
+## 📊 Key Visualisations
+
+### Trend in Faulty Devices Over Time
+![Faulty Devices Trend](outputs/charts/faulty_devices_trend.png)
+
+### Faulty Device Types Distribution
+![Device Type Distribution](outputs/charts/device_type_distribution.png)
+
+### Geographic Breakdown of Events
+![Regional Breakdown](outputs/charts/geographic_breakdown.png)
+
+---
+
 ## 📊 Visual Outputs
 
 Charts generated during the analysis can be found in:
